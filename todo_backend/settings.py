@@ -80,3 +80,6 @@ REST_FRAMEWORK = {
 
 # CORS — permite que el frontend (React, Vue, etc.) consuma la API
 CORS_ALLOW_ALL_ORIGINS = True
+
+##This is a pull request
+##and some more code
