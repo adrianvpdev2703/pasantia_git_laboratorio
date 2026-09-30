@@ -40,6 +40,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 # --- Función a optimizar ---
 def get_completed_tasks_summary():
-    # Mal refactor: usa filter() en Python sobre todo el queryset (pesado en RAM)
-    data = Task.objects.all()
-    return list(map(lambda t: t.title.upper(), filter(lambda t: t.completed, data)))
+    return list(
+        Task.objects.filter(completed=True)
+        .values_list("title", flat=True)
+    )
