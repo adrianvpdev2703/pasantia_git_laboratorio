@@ -12,8 +12,8 @@ systemctl is-active todo-backend
 ## 3. Accion en Mantenimiento
 
 ```bash
+sudo systemctl restart todo-backend
+sudo systemctl status todo-backend --no-pager
 curl -f -s http://localhost:8000/api/tasks/ > /dev/null || echo "ALERTA: Endpoint no disponible"
 ```
-
-
 
