@@ -37,3 +37,11 @@ class TaskViewSet(viewsets.ModelViewSet):
         return Response(
             {"deleted": count}, status=status.HTTP_200_OK
         )
+
+def get_completed_tasks_summary():
+    all_tasks = Task.objects.all()
+    completed_titles = []
+    for task in all_tasks:
+        if task.completed:
+            completed_titles.append(task.title.upper())
+    return completed_titles
