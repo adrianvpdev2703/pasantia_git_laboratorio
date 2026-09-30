@@ -24,3 +24,7 @@ Para uso avanzado consultar el comando `help`
 ```bash
 sudo systemctl help
 ```
+## 5. Ejecucion
+```bash
+sudo systemctl start
+```
