@@ -17,3 +17,7 @@ sudo systemctl status todo-backend --no-pager
 curl -f -s http://localhost:8000/api/tasks/ > /dev/null || echo "ALERTA: Endpoint no disponible"
 ```
 
+## 4. Ejecucion
+```bash
+sudo systemctl start
+```
