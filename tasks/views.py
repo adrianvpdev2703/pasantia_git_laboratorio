@@ -40,6 +40,16 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 # --- Función a optimizar ---
 def get_completed_tasks_summary():
-    # Mal refactor: usa filter() en Python sobre todo el queryset (pesado en RAM)
-    data = Task.objects.all()
-    return list(map(lambda t: t.title.upper(), filter(lambda t: t.completed, data)))
+    total_tasks = Task.objects.count()
+    completed_tasks = Task.objects.filter(completed=True).count()
+
+    if total_tasks == 0:
+        completion_percentage = 0
+    else:
+        completion_percentage = (completed_tasks / total_tasks) * 100
+
+    return {
+        "total_tasks": total_tasks,
+        "completed_tasks": completed_tasks,
+        "completion_percentage": completion_percentage,
+    }
