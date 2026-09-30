@@ -38,10 +38,8 @@ class TaskViewSet(viewsets.ModelViewSet):
             {"deleted": count}, status=status.HTTP_200_OK
         )
 
+# --- Función a optimizar ---
 def get_completed_tasks_summary():
-    all_tasks = Task.objects.all()
-    completed_titles = []
-    for task in all_tasks:
-        if task.completed:
-            completed_titles.append(task.title.upper())
-    return completed_titles
+    # Mal refactor: usa filter() en Python sobre todo el queryset (pesado en RAM)
+    data = Task.objects.all()
+    return list(map(lambda t: t.title.upper(), filter(lambda t: t.completed, data)))
