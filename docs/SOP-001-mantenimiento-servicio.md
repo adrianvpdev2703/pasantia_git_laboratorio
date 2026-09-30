@@ -27,11 +27,4 @@ sudo systemctl help
 ## 5. Ejecucion
 ```bash
 sudo systemctl start
-
-
-```
-
-## 6. Reinicio del servicio
-```bash
-sudo systemctl restart todo-backend
 ```
