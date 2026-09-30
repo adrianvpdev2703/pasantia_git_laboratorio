@@ -1,0 +1,14 @@
+---
+- name: Configurar servidor web
+  hosts: all
+  become: true
+  tasks:
+    - name: Instalar servidor web nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Asegurar que nginx este corriendo
+      service:
+        name: nginx
+        state: started
