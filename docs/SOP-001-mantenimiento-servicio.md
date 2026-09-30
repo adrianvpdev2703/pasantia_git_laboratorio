@@ -28,3 +28,6 @@ sudo systemctl help
 ```bash
 sudo systemctl start
 ```
+
+## 6. Referencias
+- [Systemd](https://www.freedesktop.org/wiki/Software/systemd/)
