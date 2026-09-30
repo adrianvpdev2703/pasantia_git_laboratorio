@@ -3,10 +3,16 @@
   hosts: all
   become: true
   tasks:
-    - name: Instalar paquetes del sistema
-      shell: apt update && apt install -y nginx curl htop
+    - name: Instalar paquetes del sistema de forma idempotente
+      ansible.builtin.apt:
+        name:
+          - nginx
+          - curl
+          - htop
+        state: present
+        update_cache: true
 
     - name: Asegurar que nginx este corriendo
-      service:
+      ansible.builtin.service:
         name: nginx
         state: started
