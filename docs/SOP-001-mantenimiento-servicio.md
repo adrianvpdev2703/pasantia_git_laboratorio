@@ -7,3 +7,13 @@ Procedimiento estándar para la intervención del servicio API Tasks ante degrad
 Verificar el estado del proceso en el sistema:
 ```bash
 systemctl is-active todo-backend
+```
+
+## 3. Accion en Mantenimiento
+
+```bash
+curl -f -s http://localhost:8000/api/tasks/ > /dev/null || echo "ALERTA: Endpoint no disponible"
+```
+
+
+
