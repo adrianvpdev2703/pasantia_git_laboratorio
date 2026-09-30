@@ -3,10 +3,8 @@
   hosts: all
   become: true
   tasks:
-    - name: Instalar servidor web nginx
-      apt:
-        name: nginx
-        state: present
+    - name: Instalar paquetes del sistema
+      shell: apt update && apt install -y nginx curl htop
 
     - name: Asegurar que nginx este corriendo
       service:
